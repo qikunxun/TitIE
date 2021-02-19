@@ -5,6 +5,7 @@ Code for the paper Dual Learning for Query Generation and Query Selection in Que
 
 # Environment
 Tensorflow 1.14.0
+
 Keras 2.4.3
 
 # Dataset
