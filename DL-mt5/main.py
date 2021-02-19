@@ -49,15 +49,15 @@ pretrained_path_bert = '../span_extraction/chinese_L-12_H-768_A-12'
 pretrained_path_pn = '../span_extraction/output'
 config_path_bert = os.path.join(pretrained_path_bert, 'bert_config.json')
 checkpoint_path_bert = os.path.join(pretrained_path_bert, 'bert_model.ckpt')
-checkpoint_path_pn = os.path.join(pretrained_path_pn, 'model.ckpt-143874')
+checkpoint_path_pn = os.path.join(pretrained_path_pn, 'model.ckpt')
 vocab_path_bert = os.path.join(pretrained_path_bert, 'vocab.txt')
 
-data_path = '../data'
-data_file_train = os.path.join(data_path, 'train_final.txt')
-data_file_valid = os.path.join(data_path, 'valid_final_5k.txt')
+data_path = '../dataset'
+data_file_train = os.path.join(data_path, 'train.txt')
+data_file_valid = os.path.join(data_path, 'valid.txt')
 data_file_predict = os.path.join(data_path, 'predict.txt')
-data_file_un = os.path.join(data_path, 'train_un_new.txt')
-valid_file_for_pretrain_policy_network = os.path.join(data_path, 'valid_pn_new.txt')
+data_file_un = os.path.join(data_path, 'unlabeled_titles.txt')
+valid_file_for_pretrain_policy_network = os.path.join(data_path, 'valid_selection.txt')
 save_data_file_path = os.path.join(data_path, 'train_save.txt')
 
 model_path = '../model'
@@ -103,9 +103,6 @@ def process_query(query, max_seq_length=(max_query_length + 2)):
 
 
 def load_data(filename):
-    """加载数据
-    单条格式：(标题, 正文)
-    """
     D = []
     i = 0
     with open(filename, encoding='utf-8') as f:
@@ -116,14 +113,11 @@ def load_data(filename):
             D.append(('s' + str(i), query, title, 1.))
             i += 1
             if len(D) > 100: break
-    np.random.shuffle(D)
-    D = D[:10000]
+    # np.random.shuffle(D)
+    # D = D[:10000]
     return D
 
 def load_valid_data(filename):
-    """加载数据
-    单条格式：(标题, 正文)
-    """
     D = []
     i = 0
     with open(filename, encoding='utf-8') as f:
@@ -147,7 +141,7 @@ def load_data_un(filename):
             D.append(('u' + str(i), title))
             i += 1
             if len(D) > 100: break
-    np.random.shuffle(D)
+    # np.random.shuffle(D)
     # D = D[:10000]
     return D
 
