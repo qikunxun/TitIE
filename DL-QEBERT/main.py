@@ -31,7 +31,7 @@ pretrained_path = '../chinese_L-12_H-768_A-12/'
 pretrained_path_pn = '../output/'
 config_path = os.path.join(pretrained_path, 'bert_config.json')
 checkpoint_path = os.path.join(pretrained_path, 'bert_model.ckpt')
-checkpoint_path_pn = os.path.join(pretrained_path_pn, 'model.ckpt-143874')
+checkpoint_path_pn = os.path.join(pretrained_path_pn, 'model.ckpt')
 vocab_path = os.path.join(pretrained_path, 'vocab.txt')
 
 data_path = '../dataset'
@@ -40,7 +40,7 @@ data_file_valid_seen = os.path.join(data_path, 'valid.txt')
 data_file_train_unseen = os.path.join(data_path, 'unlabeled_titles.txt')
 # data_file_valid_unseen = os.path.join(data_path, 'test.txt')
 train_file_for_pretrain_policy_network = os.path.join(data_path, 'train_pn.txt')
-valid_file_for_pretrain_policy_network = os.path.join(data_path, 'valid_pn_new.txt')
+valid_file_for_pretrain_policy_network = os.path.join(data_path, 'valid_selection.txt')
 remove_file_path = os.path.join(data_path, 'train_data_sub.txt')
 
 model_path = '../model'
