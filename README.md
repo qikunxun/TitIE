@@ -3,6 +3,9 @@
 Code for the paper Dual Learning for Query Generation and Query Selection in Query Recommendation.
 
 
+# Environment
+Tensorflow 1.14.0
+Keras 2.4.3
 
 # Dataset
 Our proposed dataset for query generation and query selection is released in ./dataset/
